@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{  post.title  }} 
+{% endblock %}
+{% block content %}
+<h1>{{  post.title  }}</h1>
+<small>Author of post - {{  post.author  }}</small><br>
+<small>Was published - {{ post.published_on }}</small><br>
+<hr>
+<br>
+{{  post.body  }}
+<br><br>
+<a href="/" class="btn btn-dark">Back</a>
+{% endblock %}

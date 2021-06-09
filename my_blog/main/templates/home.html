@@ -1,1 +1,13 @@
-<h1>Hello my friend, I realy want this job!</h1>
+{% extends 'base.html' %}
+{% block content %}
+<h1>Posts</h1>
+<ul>
+{% for post in object_list %}
+
+    <li><a href="{% url 'article_detaile' post.slug %}">"{{  post.title  }}"</a><br>
+    Author of post - {{  post.author  }}<br>
+    {{  post.body  }}</li>
+
+{% endfor %}
+</ul>
+{% endblock %}

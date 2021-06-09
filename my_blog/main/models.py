@@ -17,5 +17,5 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
-        return self.title + '|' + self.author
+        return self.title + ' | ' + str(self.author)
 
