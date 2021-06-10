@@ -12,3 +12,14 @@ class PostForm(forms.ModelForm):
             'author': forms.Select(attrs={'class': 'form-control'}),
             'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter yout post body'}),
         }
+
+class EditForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title', 'slug', 'body')
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter title of your post'}),
+            'slug': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter a unique identificator for your post'}),
+            'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter yout post body'}),
+        }
