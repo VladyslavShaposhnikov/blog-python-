@@ -10,8 +10,10 @@
     Category - <strong><a href="{% url 'category' post.category %}">{{ post.category }}</a></strong><br>
     Author of post - {{  post.author  }}
     {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
     - <small><a href="{% url 'update-post' post.slug %}">(Edit post)</a></small>
     <small><a href="{% url 'delete-post' post.slug %}">(Delete post)</a></small><br>
+    {% endif %}
     {% endif %}
     <br>
     {{ post.body|slice:":200"|safe }}

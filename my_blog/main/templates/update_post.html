@@ -7,18 +7,24 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+        <h1>Update Post Post</h1>
 
-<h1>Update Post Post</h1>
+        <br><br>
+        <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Update</button>
+            <a href="/" class="btn btn-danger">Back</a>
+        </form>
+        </div>
 
-<br><br>
-<div class="form-group">
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-secondary">Update</button>
-    <a href="/" class="btn btn-danger">Back</a>
-</form>
-</div>
+    {% else%}
+
+        <h1>You are not allowed here, you should to login on this website :)</h1>
+
+    {% endif %}
 
 {% else%}
 
