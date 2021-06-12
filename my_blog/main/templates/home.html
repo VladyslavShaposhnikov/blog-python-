@@ -16,7 +16,12 @@
     {% endif %}
     {% endif %}
     <br>
-    {{ post.body|slice:":200"|safe }}
+    {{ post.body|slice:":200"|safe }}<br>
+    {% if post.total_likes == 1 %}
+        <small class="text-danger">{{ post.total_likes }}</small><small> like</small><br>
+    {% else %}
+        <small class="text-danger">{{ post.total_likes }}</small><small> likes</small><br>
+    {% endif %}
     </li>
     <hr>
 {% endfor %}

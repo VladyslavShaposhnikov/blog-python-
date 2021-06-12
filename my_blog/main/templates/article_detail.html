@@ -18,4 +18,24 @@ Author of post - {{  post.author  }}<br>
 {{  post.body|safe  }}
 <br><br>
 <a href="/" class="btn btn-dark">Back</a>
+<br><br>
+<hr>
+<br>
+<form action="{% url 'like-post' post.slug %}" method="POST">
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+        {% if liked %}
+            <button type="submit" name="post_slug" value="{{ post.slug }}" class="btn btn-danger btn-small">Unlike</button>
+        {% else %}
+            <button type="submit" name="post_slug" value="{{ post.slug }}" class="btn btn-primary btn-small">Like</button>
+        {% endif %}
+    {% else %}
+    <small><a href="{% url 'login' %}">Login</a> to like</small>
+    {% endif %}
+    {% if total_likes == 1 %}
+     - {{ total_likes }} Like
+    {% else %}
+     - {{ total_likes }} Likes
+    {% endif %}
+</form>
 {% endblock %}

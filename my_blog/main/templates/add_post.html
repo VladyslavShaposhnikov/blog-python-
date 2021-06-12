@@ -17,7 +17,12 @@
 </form>
 </div>
 
-{% else%}
+<script>
+    var name= "{{ user.id }}";
+    document.getElementById("elder").value = name;
+</script>
+
+{% else %}
 
 <h1>You are not allowed here, you should to login on this website :)</h1>
 

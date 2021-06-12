@@ -19,6 +19,10 @@ class Post(models.Model):
     published_on = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=255, unique=True)
     category = models.CharField(max_length=255, default='Coding')
+    likes = models.ManyToManyField(User, related_name='blog_posts')
+
+    def total_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
