@@ -5,10 +5,14 @@
 <ul>
 {% for post in object_list %}
 
-    <li><a href="{% url 'article-detail' post.slug %}">{{  post.title  }}</a><br>
+    <li><strong><a href="{% url 'article-detail' post.slug %}">{{  post.title  }}</a></strong><br>
     <small>Was published - {{ post.published_on }}</small><br>
-    Category - <strong><a href="{% url 'category' post.category %}">{{ post.category }}</a></strong><br>
-    Author of post - {{  post.author  }}
+    Category - <a href="{% url 'category' post.category %}">{{ post.category }}</a><br>
+    {% if post.author.first_name %}
+        Author of post - {{  post.author.first_name }} {{  post.author.last_name }}
+    {% else %}
+        Author of post - {{  post.author  }}
+    {% endif %}
     {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
     - <small><a href="{% url 'update-post' post.slug %}">(Edit post)</a></small>
