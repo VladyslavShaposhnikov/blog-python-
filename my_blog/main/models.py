@@ -20,6 +20,7 @@ class Post(models.Model):
     published_on = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=255, unique=True)
     category = models.CharField(max_length=255, default='Coding')
+    snippet = models.CharField(max_length=255, default='Click Link Above To Read Blog Post')
     likes = models.ManyToManyField(User, related_name='blog_posts')
 
     def total_likes(self):

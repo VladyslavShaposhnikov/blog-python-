@@ -20,7 +20,8 @@
     {% endif %}
     {% endif %}
     <br>
-    {{ post.body|slice:":200"|safe }}<br>
+    {{ post.snippet }}
+    <br>
     {% if post.total_likes == 1 %}
         <small class="text-danger">{{ post.total_likes }}</small><small> like</small><br>
     {% else %}
