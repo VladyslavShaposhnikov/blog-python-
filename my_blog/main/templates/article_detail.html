@@ -62,17 +62,18 @@ Category - <strong><a href="{% url 'category' post.category %}">{{ post.category
           <h5 class="card-title">{{  post.author.first_name }} {{  post.author.last_name }}</h5>
           <p class="card-text">
               <small class="text-muted">
-                {% if user.profile.website_url %}
-                    <a href="{{ user.profile.website_url }}">Website</a> 
+                  <a href="{% url 'show_profile' post.author.id %}">Profile Page</a>
+                {% if post.author.profile.website_url %}
+                    | <a href="{{ post.author.profile.website_url }}">Website</a> 
                 {% endif %}
-                {% if user.profile.fb_url %}
-                    | <a href="{{ user.profile.fb_url }}">Facebook</a> 
+                {% if post.author.profile.fb_url %}
+                    | <a href="{{ post.author.profile.fb_url }}">Facebook</a> 
                 {% endif %}
-                {% if user.profile.instagram_url %}
-                    | <a href="{{ user.profile.instagram_url }}">Instagram</a> 
+                {% if post.author.profile.instagram_url %}
+                    | <a href="{{ post.author.profile.instagram_url }}">Instagram</a> 
                 {% endif %}
-                {% if user.profile.twitter_url %}
-                    | <a href="{{ user.profile.twitter_url }}">Twitter</a>
+                {% if post.author.profile.twitter_url %}
+                    | <a href="{{ post.author.profile.twitter_url }}">Twitter</a>
                 {% endif %}
             </small></p>
           <p class="card-text">{{ post.author.profile.bio }}</p>
