@@ -12,7 +12,9 @@
 <div class="form-group">
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="form-group">
+        <input type="text" class="form-control" name="name" placeholder="Category name">
+        </div>
     <button class="btn btn-secondary">Add Category</button>
 </form>
 </div>
