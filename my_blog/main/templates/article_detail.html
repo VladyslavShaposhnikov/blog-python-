@@ -6,11 +6,8 @@
 {% block content %}
 <h1>{{  post.title  }}</h1>
 Category - <strong><a href="{% url 'category' post.category %}">{{ post.category }}</a></strong><br>
-{% if post.author.first_name %}
-    Author of post - {{  post.author.first_name }} {{  post.author.last_name }}
-{% else %}
-    Author of post - {{  post.author  }}
-{% endif %}<br>
+Author of post - {{  post.author.first_name }} {{  post.author.last_name }}
+<br>
 <small>Was published - {{ post.published_on }}</small><br>
 {% if user.is_authenticated %}
 {% if user.id == post.author.id %}
@@ -47,6 +44,7 @@ Category - <strong><a href="{% url 'category' post.category %}">{{ post.category
     {% endif %}
 </form>
 <br><br>
+{% if post.author.profile %}
 <div class="card mb-3">
     <div class="row no-gutters">
       <div class="col-md-2">
@@ -80,6 +78,7 @@ Category - <strong><a href="{% url 'category' post.category %}">{{ post.category
       </div>
     </div>
   </div>
+  {% endif %}
 <br><br>
 <br>
 <h2>Comments</h2>
