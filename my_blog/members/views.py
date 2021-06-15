@@ -7,6 +7,11 @@ from .forms import SignUpForm, EditProfileForm, PasswordChangingForm
 from django.views.generic import DetailView
 from main.models import Profile
 
+class EditProfilePageView(generic.UpdateView):
+    model = Profile
+    template_name = 'registration/edit_profile_page.html'
+    fields = ['bio','profile_pic','website_url','fb_url','twitter_url','instagram_url']
+    success_url = reverse_lazy('home')
 
 class ShowProfilePageView(DetailView):
     model = Profile

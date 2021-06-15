@@ -4,15 +4,8 @@
 
 {% block content %}
 
-<h1>Edit Profile</h1>
+<h1>Edit Settings</h1>
 <br><br>
-<!--
-About me: {{ user.profile.bio }}<br>
-<img src="{{ user.profile.profile_pic.url }}" width="120" height="130"><br>
-My site: <a href="{{ user.profile.website_url }}">{{ user.profile.website_url }}</a><br>
-My facebook: <a href="{{ user.profile.fb_url }}">{{ user.profile.fb_url }}</a><br>
-<br><br>
--->
 <div class="form-group">
 <form method="POST">
     {% csrf_token %}

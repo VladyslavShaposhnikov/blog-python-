@@ -62,7 +62,7 @@ Category - <strong><a href="{% url 'category' post.category %}">{{ post.category
           <h5 class="card-title">{{  post.author.first_name }} {{  post.author.last_name }}</h5>
           <p class="card-text">
               <small class="text-muted">
-                  <a href="{% url 'show_profile' post.author.id %}">Profile Page</a>
+                  <a href="{% url 'show_profile' post.author.profile.id %}">Profile Page</a>
                 {% if post.author.profile.website_url %}
                     | <a href="{{ post.author.profile.website_url }}">Website</a> 
                 {% endif %}
